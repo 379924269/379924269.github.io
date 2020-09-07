@@ -2,9 +2,7 @@
 [参考地址](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247486555&idx=2&sn=8486026ee9f9ba645ff0363df6036184&chksm=cea24390f9d5ca86ff4177c0aca5e719de17dc89e918212513ee661dd56f17ca8269f4a6e303&token=298703358&lang=zh_CN#rd)
 
 
-[docsify学习地址](https://docsify.js.org/#/zh-cn/more-pages)
-
 webstrom中命令行启动操作步骤：
-1、docsify init ./docs   //这个命令只在项目初始化的时候使用（**一般只用一次**）
-2、docsify serve docs    //这个命令是在启动服务的时候使用
+1、docsify init ./docs
+2、docsify serve docs
 
