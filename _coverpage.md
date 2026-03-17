@@ -7,4 +7,4 @@
 [**开始阅读**](./README.md)
 
 <!-- 背景图片 -->
-![color](#1e90ff)
+![](static/bg.jpeg)
