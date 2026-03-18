@@ -2,3 +2,5 @@
 
 * [首页](./README.md)
 * [我的chrome标签](./chrome-tag/chrome.md)
+* [我的简历](./resume/huazai.md)
+
