@@ -38,6 +38,11 @@
 - [个人博客系统](https://github.com/379924269/blog-system)
 - [工具集合](https://github.com/379924269/tools-collection)
 
+## 标签
+
+### 浏览器标签
+- [我的chrome标签](./docs/chrome.md)
+
 ---
 
 **开始探索** 🚀
