@@ -553,5 +553,3 @@ Cache<String, String> cache = Caffeine.newBuilder()
 4. ✅ 监控缓存命中率
 5. ✅ 分布式场景用 Redis + 本地 Guava/Caffeine 多级缓存
 
-希望这个教程对你有帮助！如果需要了解特定场景的使用，可以继续提问。
-
