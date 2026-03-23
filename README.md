@@ -9,12 +9,8 @@
 ### java
 
 - [常见问题](./java/problem.md)
-
-## 缓存
-
-### Guava
-
-- [简单教程](./java/guava.md)
+- [guava简单教程](./java/guava.md)
+- [caffeine简单教程](./java/caffeine.md)
 
 ## 标签
 
