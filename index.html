@@ -13,62 +13,41 @@
 <body>
   <div id="app"></div>
   <script>
-    // 定义docsify插件 - 使用正确的钩子
-    function countdownPlugin(hook, vm) {
-      // 初始化钩子 - 首次加载时执行
-      hook.init(function() {
-        console.log('Docsify initialized');
-      });
-      
-      // 每次路由变化后执行 - 这应该会在封面加载后触发
-      hook.doneEach(function() {
-        console.log('Route changed, checking for countdown...');
-        runCountdown();
-      });
-    }
-    
-    // 运行倒计时
-    function runCountdown() {
+    // 倒计时函数
+    function startCountdown() {
       var el = document.getElementById('countdown');
       if (el && !el.dataset.started) {
         el.dataset.started = 'true';
         var count = 10;
         el.innerText = count;
         
-        console.log('Countdown started!');
-        
         var timer = setInterval(function() {
           count--;
           el.innerText = count;
-          console.log('Countdown:', count);
           
           if (count <= 0) {
             clearInterval(timer);
-            console.log('Redirecting to README.md');
-            window.location.href = './README.md';
+            window.location.href = '#/./README.md';
           }
         }, 1000);
       }
     }
     
+    // docsify 插件
+    function countdownPlugin(hook, vm) {
+      hook.doneEach(function() {
+        startCountdown();
+      });
+    }
+    
     window.$docsify = {
-      // 项目名称
-      // name: '华仔的记录',
-      // 仓库地址，点击右上角的Github章鱼猫头像会跳转到此地址
       repo: 'https://github.com/379924269/379924269.github.io',
-      // 封面支持，默认加载的是项目根目录下的_coverpage.md文件
       coverpage: true,
-      // 首页只展示封面（默认为false，与README.md进行拼接）
       onlyCover: true,
-      // 导航栏支持，默认加载的是项目根目录下的_navbar.md文件
       loadNavbar: true,
-      // 侧边栏支持，默认加载的是项目根目录下的_sidebar.md文件
       loadSidebar: true,
-      // 最大支持渲染的标题层级
       maxLevel: 5,
-      // 自定义侧边栏后默认不会再生成目录，设置生成目录的最大层级（建议配置为2-4）
       subMaxLevel: 4,
-      // 小屏设备下合并导航栏到侧边栏
       mergeNavbar: true,
       search: {
         maxAge: 86400000,
@@ -77,13 +56,21 @@
         noData: '没有找到结果',
         depth: 6
       },
-      // 注册插件
       plugins: [countdownPlugin]
     }
   </script>
   
   <!-- docsify的js依赖 -->
   <script src="static/js/docsify.min.js"></script>
+  
+  <!-- 倒计时脚本 - 直接内联 -->
+  <script>
+    // 等待 docsify 加载后启动倒计时
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(startCountdown, 1000);
+    });
+  </script>
+  
   <!-- 图片放大缩小支持 -->
   <script src="static/js/zoom-image.min.js"></script>
   <!-- 搜索功能支持 -->
