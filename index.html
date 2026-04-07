@@ -13,6 +13,44 @@
 <body>
   <div id="app"></div>
   <script>
+    // 定义docsify插件 - 使用正确的钩子
+    function countdownPlugin(hook, vm) {
+      // 初始化钩子 - 首次加载时执行
+      hook.init(function() {
+        console.log('Docsify initialized');
+      });
+      
+      // 每次路由变化后执行 - 这应该会在封面加载后触发
+      hook.doneEach(function() {
+        console.log('Route changed, checking for countdown...');
+        runCountdown();
+      });
+    }
+    
+    // 运行倒计时
+    function runCountdown() {
+      var el = document.getElementById('countdown');
+      if (el && !el.dataset.started) {
+        el.dataset.started = 'true';
+        var count = 10;
+        el.innerText = count;
+        
+        console.log('Countdown started!');
+        
+        var timer = setInterval(function() {
+          count--;
+          el.innerText = count;
+          console.log('Countdown:', count);
+          
+          if (count <= 0) {
+            clearInterval(timer);
+            console.log('Redirecting to README.md');
+            window.location.href = './README.md';
+          }
+        }, 1000);
+      }
+    }
+    
     window.$docsify = {
       // 项目名称
       // name: '华仔的记录',
@@ -38,9 +76,12 @@
         placeholder: '👉👉👉在这里搜索关键字👈👈👈',
         noData: '没有找到结果',
         depth: 6
-      }
+      },
+      // 注册插件
+      plugins: [countdownPlugin]
     }
   </script>
+  
   <!-- docsify的js依赖 -->
   <script src="static/js/docsify.min.js"></script>
   <!-- 图片放大缩小支持 -->
