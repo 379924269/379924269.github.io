@@ -76,8 +76,7 @@
 - [官方地址](https://docsify.js.org/#/zh-cn/)
 - [文档参考源码](https://github.com/dromara/plus-doc.git)
 - [markdown教程](https://markdown.com.cn/)
-
-
+- [markdown中使用emojis](common/emojis.md) 就是在markdown中用冒号:开头输入单词就好
 
 ### 💡 结语
 
