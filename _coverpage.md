@@ -37,7 +37,6 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
     animation: scrollBackground 30s linear infinite;
     min-height: 100vh;
     display: flex;
@@ -47,6 +46,18 @@
     text-align: center;
     color: #ffffff;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  @keyframes scrollBackground {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: 0% 100%;
+    }
   }
 
   .cover-main h1 {
@@ -68,6 +79,8 @@
     border-radius: 8px;
     margin: 2rem 0;
     color: #ffffff;
+    max-width: 100%;
+    overflow-x: auto;
   }
 
   .cover-main a {
@@ -80,12 +93,59 @@
     color: #00f2fe;
   }
 
-  @keyframes scrollBackground {
-    0% {
-      background-position: 0% 0%;
+  /* 响应式设计 */
+  @media (max-width: 768px) {
+    .cover-main {
+      min-height: 100vh;
+      height: auto;
     }
-    100% {
-      background-position: 100% 100%;
+    
+    .cover-main h1 {
+      font-size: 2.5rem;
+    }
+    
+    .cover-main blockquote {
+      font-size: 1.2rem;
+    }
+    
+    .cover-main pre {
+      padding: 1rem;
+      font-size: 0.9rem;
+      max-width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .cover-main {
+      min-height: 100vh;
+      height: auto;
+      padding: 15px;
+    }
+    
+    .cover-main h1 {
+      font-size: 2rem;
+    }
+    
+    .cover-main blockquote {
+      font-size: 1rem;
+    }
+    
+    .cover-main pre {
+      padding: 0.8rem;
+      font-size: 0.8rem;
+      max-width: 100%;
+    }
+  }
+
+  /* 确保在移动设备上内容完全显示 */
+  @media (max-width: 480px) {
+    .cover-main {
+      justify-content: flex-start;
+      padding-top: 40px;
+    }
+    
+    .cover-main h1 {
+      margin-top: 0;
     }
   }
 </style>
@@ -93,4 +153,3 @@
 <!-- 背景图片 -->
 
 ![color](#0a0e27)
-
