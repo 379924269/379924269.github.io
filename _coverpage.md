@@ -15,9 +15,8 @@
 
 [🚀 **启动探索**](./README.md)
 
-<div id="countdown" style="margin-top: 2rem; font-size: 2rem; color: #4facfe; font-weight: bold;">10</div>
-
 <!-- 滚动背景效果 -->
+
 <style>
   :root {
     --bg-image: url('static/img/1.jpeg');
@@ -92,4 +91,6 @@
 </style>
 
 <!-- 背景图片 -->
+
 ![color](#0a0e27)
+

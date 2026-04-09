@@ -2,91 +2,54 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <title>华仔的记录</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="华仔的记录 - 记录学习、工作与生活的点点滴滴">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" href="static/css/vue.css">
+    <meta charset="UTF-8">
+    <title>华仔的博客</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="description" content="华仔的博客 - 记录学习、工作与生活的点点滴滴">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="static/css/vue.css">
 </head>
 
 <body>
-  <div id="app"></div>
-  <script>
-    // 倒计时函数
-    function startCountdown() {
-      var el = document.getElementById('countdown');
-      if (el && !el.dataset.started) {
-        el.dataset.started = 'true';
-        var count = 10;
-        el.innerText = count;
-        
-        var timer = setInterval(function() {
-          count--;
-          el.innerText = count;
-          
-          if (count <= 0) {
-            clearInterval(timer);
-            window.location.href = '#/./README.md';
-          }
-        }, 1000);
-      }
-    }
-    
-    // docsify 插件
-    function countdownPlugin(hook, vm) {
-      hook.doneEach(function() {
-        startCountdown();
-      });
-    }
-    
+<div id="app"></div>
+<script>
     window.$docsify = {
-      repo: 'https://github.com/379924269/379924269.github.io',
-      coverpage: true,
-      onlyCover: true,
-      loadNavbar: true,
-      loadSidebar: true,
-      maxLevel: 5,
-      subMaxLevel: 4,
-      mergeNavbar: true,
-      search: {
-        maxAge: 86400000,
-        paths: 'auto',
-        placeholder: '👉👉👉在这里搜索关键字👈👈👈',
-        noData: '没有找到结果',
-        depth: 6
-      },
-      plugins: [countdownPlugin]
+        repo: 'https://github.com/379924269/379924269.github.io',
+        coverpage: true,
+        onlyCover: true,
+        loadNavbar: true,
+        loadSidebar: true,
+        maxLevel: 5,
+        subMaxLevel: 4,
+        mergeNavbar: true,
+        search: {
+            maxAge: 86400000,
+            paths: 'auto',
+            placeholder: '👉👉👉在这里搜索关键字👈👈👈',
+            noData: '没有找到结果',
+            depth: 6
+        }
     }
-  </script>
-  
-  <!-- docsify的js依赖 -->
-  <script src="static/js/docsify.min.js"></script>
-  
-  <!-- 倒计时脚本 - 直接内联 -->
-  <script>
-    // 等待 docsify 加载后启动倒计时
-    document.addEventListener('DOMContentLoaded', function() {
-      setTimeout(startCountdown, 1000);
-    });
-  </script>
-  
-  <!-- 图片放大缩小支持 -->
-  <script src="static/js/zoom-image.min.js"></script>
-  <!-- 搜索功能支持 -->
-  <script src="static/js/search.min.js"></script>
-  <!--在所有的代码块上添加一个简单的Click to copy按钮来允许用户从你的文档中轻易地复制代码-->
-  <script src="static/js/docsify-copy-code.min.js"></script>
+</script>
 
-  <!-- 回到顶部 -->
-  <script src="static/js/docsify-scroll-to-top.min.js"></script>
-  <!-- 分页导航 -->
-  <script src="static/js/docsify-pagination.min.js"></script>
-  <!-- 页脚-->
-  <script src="static/js/docsify-footer.min.js"></script>
-  <!-- 代码高亮 -->
-  <script src="static/js/prism-typescript.min.js"></script>
-  <script src="static/js/prism-bash.min.js"></script>
+<!-- docsify的js依赖 -->
+<script src="static/js/docsify.min.js"></script>
+<!-- 图片放大缩小支持 -->
+<script src="static/js/zoom-image.min.js"></script>
+<!-- 搜索功能支持 -->
+<script src="static/js/search.min.js"></script>
+<!--在所有的代码块上添加一个简单的Click to copy按钮来允许用户从你的文档中轻易地复制代码-->
+<script src="static/js/docsify-copy-code.min.js"></script>
+
+<!-- 回到顶部 -->
+<script src="static/js/docsify-scroll-to-top.min.js"></script>
+<!-- 分页导航 -->
+<script src="static/js/docsify-pagination.min.js"></script>
+<!-- 页脚-->
+<script src="static/js/docsify-footer.min.js"></script>
+<!-- 代码高亮 -->
+<script src="static/js/prism-typescript.min.js"></script>
+<script src="static/js/prism-bash.min.js"></script>
 </body>
 
 </html>
