@@ -15,6 +15,12 @@
 docker-compose up -d --build ruoyi-mysql
 ````
 
+## 因为服务器资源限制，要部署在两台服务器上
+
+- [docker swarm参考](learn-project/swarm.md)
+
+- [k8s参考](learn-project/swarm.md)
+
 ## issue
 
 * **部署数据库没有初始化文件**
