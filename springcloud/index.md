@@ -4,6 +4,12 @@ Spring Cloud 是一个基于 Spring Boot 实现的微服务架构开发工具集
 
 Spring Cloud 的主要目标是简化分布式系统的开发，为开发者提供一套完整的微服务架构解决方案。它基于 Spring Boot，利用了 Spring Boot 的自动配置特性，使得开发者可以快速构建和部署微服务应用。
 
+## 版本信息
+> **官方文档**: [Spring Cloud Alibaba](https://spring.io/projects/spring-cloud-alibaba) | [Spring Cloud](https://spring.io/projects/spring-cloud)  
+
+> **版本适配**: [Spring Cloud Alibaba 版本说明](https://sca.aliyun.com/docs/2025.x/overview/version-explain/)   
+查看 Spring Cloud 与 Spring Cloud Alibaba 版本适配，以及各alibaba组件版本对应关系,如nacos、sentinel等组件的版本适配关系。
+
 ## 主要特点
 
 - **开箱即用**：提供了一套完整的微服务开发工具集，开发者可以直接使用，无需从零开始构建。

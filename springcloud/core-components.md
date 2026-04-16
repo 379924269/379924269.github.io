@@ -6,12 +6,6 @@
 - **Spring Cloud Alibaba 版本**: 2025.1.0.0
 - **Spring Boot Admin 版本**: 4.0.2
 
-Spring Cloud Alibaba 提供了一系列核心组件，用于构建和管理微服务架构。以下是主要的核心组件：
-
-> **官方文档**: [Spring Cloud Alibaba](https://spring.io/projects/spring-cloud-alibaba) | [Spring Cloud](https://spring.io/projects/spring-cloud)
-> **版本适配**: [Spring Cloud Alibaba 版本说明](https://sca.aliyun.com/docs/2025.x/overview/version-explain/) - 查看 Spring Cloud 与 Spring Cloud Alibaba 版本适配，以及各组件版本对应关系
-
-
 ## Spring Cloud Alibaba 组件
 
 ### Nacos
