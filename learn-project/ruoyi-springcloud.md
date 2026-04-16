@@ -124,4 +124,10 @@ db.url.0=jdbc:mysql://ruoyi-mysql:3306/ry-config?characterEncoding=utf8&connectT
 db.url.0=jdbc:mysql://ruoyi-mysql:3306/ry-config?characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useUnicode=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
 ```
 
-```
+### Nacos 配置加载顺序
+
+- 本地配置优先级高于 Nacos 配置
+- Nacos 配置中，下标越小优先级越高
+- `refresh: true` 表示配置变更时可动态刷新
+- 建议将公共配置放共享配置，数据库等不常变更的配置放扩展配置
+
