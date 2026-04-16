@@ -99,3 +99,29 @@ services:
     ports:
       - "7848:8848"
 ```
+
+### nacos第二次启动报错
+
+```java
+Caused by: com.mysql.cj.exceptions.CJException: Public Key Retrieval is not allowed
+```
+
+#### **原因**：
+
+- MySQL 8.0 默认使用 `caching_sha2_password` 认证插件
+- 当客户端连接时，需要检索服务器的公钥，但默认配置不允许
+- 第一次启动可能使用了不同的认证方式或缓存了连接信息，第二次启动时才触发此问题
+
+#### 解决方案
+
+修改 `docker/nacos/conf/application.properties` 文件，在 MySQL 连接 URL 中添加 `allowPublicKeyRetrieval=true` 参数：
+
+```properties
+# 修改前
+db.url.0=jdbc:mysql://ruoyi-mysql:3306/ry-config?characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useUnicode=true&useSSL=false&serverTimezone=UTC
+
+# 修改后
+db.url.0=jdbc:mysql://ruoyi-mysql:3306/ry-config?characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useUnicode=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+```
+
+```
