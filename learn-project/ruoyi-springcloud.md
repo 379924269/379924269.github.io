@@ -131,3 +131,30 @@ db.url.0=jdbc:mysql://ruoyi-mysql:3306/ry-config?characterEncoding=utf8&connectT
 - `refresh: true` 表示配置变更时可动态刷新
 - 建议将公共配置放共享配置，数据库等不常变更的配置放扩展配置
 
+### Seata docker-compose 部署的坑
+
+按照[seata官网](https://seata.apache.org/zh-cn/docs/ops/deploy-by-docker-compose/#%E6%97%A0%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83db%E5%AD%98%E5%82%A8)配置报错：
+```
+Web application could not be started as there was no org.springframework.boot.web.servlet.server.ServletWebServerFactory bean defined in the context.
+```
+
+#### 🔍 问题根因
+
+这个错误表示 **应用被识别为 Web 应用，但缺少嵌入式 Servlet 容器**。根本原因通常是：
+
+#### 1️⃣ 关键配置缺失（最常见）
+在 Seata **2.x 版本** 的官方 `application.yml` 中，明确配置了：
+```yaml
+spring:
+  application:
+    name: seata-server
+  main:
+    web-application-type: none  # ⚠️ 这行必须存在！
+```
+[[11]] 如果这行配置缺失或被覆盖，Spring Boot 会默认按 Web 应用启动，但 Seata Server 本身不包含 `spring-boot-starter-web` 依赖，导致启动失败。
+
+#### :one: 多看看官网配置
+官网文档里面的连接点进去，点到**githu**上看看，选好对应的版本，看配置、看sql脚本、demo
+
+
+
