@@ -1,4 +1,4 @@
-# 🐮若依-cloud学习
+# 🐮ruoyi-cloud学习
 
 ## 📖参考资料
 
@@ -84,6 +84,11 @@ http://192.168.0.202:8878/swagger-ui/index.html
 
 - [docker swarm参考](learn-project/swarm.md)
 - [k8s参考](learn-project/swarm.md)
+
+## 🍑seata 客户端（后台服务）
+参考springcloud-alibaba 官方例子
+> **官方 demo**: [Spring Cloud Alibaba 集成示例](https://github.com/alibaba/spring-cloud-alibaba)  
+直接把seata的demo复制过来，修改一下，就可以用在ruoyi的项目中
 
 ## 🍒issue
 
