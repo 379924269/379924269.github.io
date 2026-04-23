@@ -1,8 +1,12 @@
-- **java**
-
+- **🍊 java**
   - [简介](java/index.md)
-  - [开发中遇到的问题](java/problem.md)
-  - [常用chrome标签](./java/chrome.md)
+- **🍅常用工具**
   - [caffeine](java/caffeine.md)
   - [guava](java/guava.md)
+- **🍎问题**
+  - [开发中遇到的问题](java/problem.md)
+- **🍈标签**
+  - [Chrome 标签](java/chrome-tag.md)
+- **🍋技术博客**
+  - [Windows下JDK版本切换](java/blog-article.md)
 
