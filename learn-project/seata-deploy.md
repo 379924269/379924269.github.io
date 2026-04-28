@@ -7,6 +7,7 @@ Seata 是阿里巴巴开源的分布式事务解决方案，支持 AT、TCC、SA
 ## 2. 部署参考资料
 
 我的部署都是参考官方文档
+
 - [Spring Cloud Alibaba Seata 集成示例](https://github.com/alibaba/spring-cloud-alibaba/tree/master/samples/seata) 包括seata
 - [Seata 官方文档](https://seata.io/zh-cn/docs/overview/what-is-seata.html)
 - [Seata GitHub](https://github.com/seata/seata)
@@ -36,8 +37,10 @@ Seata 是阿里巴巴开源的分布式事务解决方案，支持 AT、TCC、SA
 ### 4.2 配置 Seata 客户端
 
 #### 4.2.1 通过文件发现配置
+
 - [资源目录介绍](https://seata.apache.org/zh-cn/docs/ops/deploy-guide-beginner)
 - [配置参考](https://github.com/apache/incubator-seata/tree/master/script)
+  https://github.com/alibaba/spring-cloud-alibaba/blob/2.2.x/spring-cloud-alibaba-examples/seata-example/readme-zh.md
 
 ```yml
 seata:
@@ -58,26 +61,33 @@ seata:
 
 [参考配置](https://github.com/alibaba/spring-cloud-alibaba/blob/2.2.x/spring-cloud-alibaba-examples/seata-example/storage-service/src/main/resources/application.yml)
 
+[部署seata client服务](https://github.com/alibaba/spring-cloud-alibaba/blob/2.2.x/spring-cloud-alibaba-examples/seata-example/readme-zh.md) 看一下这个文档
+
+⚠️**注意**：[部署要一致](#dockercompose部署参考)
+
 ### 4.3 服务发现方式对比
 
-| 对比维度 | 文件发现（file） | Nacos 发现（nacos） |
-|---------|----------------|-------------------|
-| **配置方式** | 本地配置文件硬编码 Server 地址 | 通过 Nacos 动态获取 Server 地址 |
-| **动态性** | 静态配置，地址变更需手动修改 | 动态发现，支持服务上下线自动感知 |
-| **维护成本** | 低（配置简单）但需手动维护 | 高（需搭建 Nacos）但自动维护 |
-| **适用场景** | 开发测试环境、地址固定的环境 | 生产环境、集群环境、地址可能变化的场景 |
-| **可靠性** | 单点故障风险（地址硬编码） | 高（支持负载均衡和故障转移） |
-| **依赖** | 无额外依赖 | 依赖 Nacos 服务 |
+
+| 对比维度     | 文件发现（file）               | Nacos 发现（nacos）                    |
+| ------------ | ------------------------------ | -------------------------------------- |
+| **配置方式** | 本地配置文件硬编码 Server 地址 | 通过 Nacos 动态获取 Server 地址        |
+| **动态性**   | 静态配置，地址变更需手动修改   | 动态发现，支持服务上下线自动感知       |
+| **维护成本** | 低（配置简单）但需手动维护     | 高（需搭建 Nacos）但自动维护           |
+| **适用场景** | 开发测试环境、地址固定的环境   | 生产环境、集群环境、地址可能变化的场景 |
+| **可靠性**   | 单点故障风险（地址硬编码）     | 高（支持负载均衡和故障转移）           |
+| **依赖**     | 无额外依赖                     | 依赖 Nacos 服务                        |
 
 ### 4.4 适用场景
 
 **文件发现**：
+
 - 开发测试环境
 - 单机部署场景
 - 网络隔离环境（无法访问 Nacos）
 - 地址固定不变的环境
 
 **Nacos 发现**：
+
 - 生产环境
 - 集群部署场景
 - 地址可能变化的环境
@@ -86,24 +96,39 @@ seata:
 ### 4.5 优缺点总结
 
 **文件发现优点**：
+
 - 配置简单，无额外依赖
 - 适合快速搭建和测试
 
 **文件发现缺点**：
+
 - 缺乏动态性，维护成本高
 - 不支持负载均衡和故障转移
 
 **Nacos 发现优点**：
+
 - 动态性强，支持自动发现和健康检查
 - 可靠性高，支持负载均衡和故障转移
 - 适合生产环境和集群部署
 
 **Nacos 发现缺点**：
+
 - 需要额外搭建和维护 Nacos 服务
 - 配置相对复杂
 
 ### 4.6 选择建议
+
 - **开发测试**：优先使用文件发现（简单快捷）
 - **生产环境**：推荐使用 Nacos 发现（可靠稳定）
 - **小规模部署**：可使用文件发现
 - **大规模集群**：必须使用 Nacos 发现
+
+## 4. seata 服务端部署
+
+### [dockercompose部署参考](https://seata.apache.org/zh-cn/docs/ops/deploy-by-docker-compose)
+
+⚠️注意：部署分有nacos和无nacos， 如果seata client服务配置成file  那么seata服务端必须是无nacos的。如果服务端配置成nacos，client也必须配置成nacos的， 如果client配置成file，会报错。
+
+* 无注册中心，file存储
+* 无注册中心，DB存储
+* nacos注册中心，db存储

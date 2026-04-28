@@ -1,5 +1,7 @@
 # 🐮ruoyi-cloud学习
 
+**RuoYi-Cloud** 是一个 Java EE 分布式微服务架构平台，基于经典技术组合（Spring Boot、Spring Cloud & Alibaba、Vue、Element），内置模块如：部门管理、角色用户、菜单及按钮授权、数据权限、系统参数、日志管理、代码生成等。在线定时任务配置；支持集群，支持多数据源。
+
 ## 📖参考资料
 
 - [源码官网](https://gitee.com/y_project/RuoYi-Cloud)
@@ -11,10 +13,10 @@
 
 ## 🎯构建参数详解
 
-❤️注意:**--build** 会强制重新构建镜像，只有在镜像有改动的时候带上。如果没有改动就**不带--build**，docker-compose会先用已有镜像，如果没有就构建
+❤️注意:**build** 会强制重新构建镜像，只有在镜像有改动的时候使用。docker-compose会先用已有镜像，如果没有就构建
 
 ````docker
-docker-compose up -d --build ruoyi-mysql
+docker-compose build ruoyi-mysql
 ````
 
 ## 👱我怎么部署到服务器上的
@@ -55,9 +57,9 @@ http://192.168.0.202:8877
 http://192.168.0.202:8878/swagger-ui/index.html
 ```
 
-## 🍌在docker-compose中可以使用服务名称进行通信
+## 🍌在docker-compose中使用服务名称进行通信
 
-- 在springboot项目的yml配置中可以使用服务名称作为IP使用
+- 在springboot项目的yml配置中使用服务名称作为IP使用
 
   ```yml
   # Spring
@@ -86,9 +88,11 @@ http://192.168.0.202:8878/swagger-ui/index.html
 - [k8s参考](learn-project/swarm.md)
 
 ## 🍑seata 客户端（后台服务）
+
 参考springcloud-alibaba 官方例子
-> **官方 demo**: [Spring Cloud Alibaba 集成示例](https://github.com/alibaba/spring-cloud-alibaba)  
-直接把seata的demo复制过来，修改一下，就可以用在ruoyi的项目中
+
+> **官方 demo**: [Spring Cloud Alibaba 集成示例](https://github.com/alibaba/spring-cloud-alibaba)
+> 直接把seata的demo复制过来，修改一下，就可以用在ruoyi的项目中
 
 ## 🍒issue
 
@@ -139,6 +143,7 @@ db.url.0=jdbc:mysql://ruoyi-mysql:3306/ry-config?characterEncoding=utf8&connectT
 ### Seata docker-compose 部署的坑
 
 按照[seata官网](https://seata.apache.org/zh-cn/docs/ops/deploy-by-docker-compose/#%E6%97%A0%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83db%E5%AD%98%E5%82%A8)配置报错：
+
 ```
 Web application could not be started as there was no org.springframework.boot.web.servlet.server.ServletWebServerFactory bean defined in the context.
 ```
@@ -148,7 +153,9 @@ Web application could not be started as there was no org.springframework.boot.we
 这个错误表示 **应用被识别为 Web 应用，但缺少嵌入式 Servlet 容器**。根本原因通常是：
 
 #### 1️⃣ 关键配置缺失（最常见）
+
 在 Seata **2.x 版本** 的官方 `application.yml` 中，明确配置了：
+
 ```yaml
 spring:
   application:
@@ -156,10 +163,9 @@ spring:
   main:
     web-application-type: none  # ⚠️ 这行必须存在！
 ```
+
 [[11]] 如果这行配置缺失或被覆盖，Spring Boot 会默认按 Web 应用启动，但 Seata Server 本身不包含 `spring-boot-starter-web` 依赖，导致启动失败。
 
 #### :one: 多看看官网配置
+
 官网文档里面的连接点进去，点到**githu**上看看，选好对应的版本，看配置、看sql脚本、demo
-
-
-
