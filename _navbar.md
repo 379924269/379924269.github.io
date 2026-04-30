@@ -2,5 +2,5 @@
 * [🍰 java](java/index.md)
 * [🐳 Docker](docker/index.md)
 * [🤖 AI相关](ai/index.md)
-* [☁️ SpringCloud](springcloud/index.md)
+* [☁️ Spring](spring/index.md)
 * [🍉 项目学习笔记](learn-project/ruoyi-springcloud.md)

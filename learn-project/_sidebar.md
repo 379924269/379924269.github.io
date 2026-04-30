@@ -9,3 +9,5 @@
 - [🛍 理解电商模式](learn-project/mode.md)
 - [🍓 参考项目](learn-project/shop-demo.md)
 - [🍑 项目-mall](learn-project/mall.md)
+- [📖 电商数据库字段解释](learn-project/database-fields.md)
+- [💰 支付集成指南](learn-project/payment.md)

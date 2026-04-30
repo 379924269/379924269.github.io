@@ -7,8 +7,18 @@
 ## 常用docker-compose 模板
 
 > - [docker-compose](https://gitee.com/zhengqingya/docker-compose)
-> 
+>
 > 常用的mysql、redis、rabbitmq等。可以一键运行的模板
+
+- **模板使用**，要什么就直接wget、curl拉取到服务器上，应用就可以了。
+
+```
+wget https://gitee.com/zhengqingya/docker-compose/tree/master/Linux/rabbitmq
+```
+
+```curl
+curl -O https://gitee.com/zhengqingya/docker-compose/tree/master/Linux/rabbitmq
+```
 
 ## 学习文档
 
@@ -16,7 +26,7 @@
 
 ## 项目部署参考
 
-> [ruoyi-cloud](https://gitee.com/y_project/RuoYi-Cloud/tree/master/docker)  
+> [ruoyi-cloud](https://gitee.com/y_project/RuoYi-Cloud/tree/master/docker)
 > 后台项目部署可以像它这样,都弄成docker然后在用docker部署
 
 ## 我的测试服务器想法
@@ -54,4 +64,3 @@ networks:
   dnp-network:
     driver: bridge
 ```
-

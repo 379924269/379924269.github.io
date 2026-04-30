@@ -4,6 +4,7 @@
 
 - [官方文档](https://www.macrozheng.com/)
 - [Gitee 源码](https://gitee.com/macrozheng/mall.git)
+- [app在线体验](https://www.macrozheng.com/app/#/)
 
 ## 📑 目录
 
@@ -385,4 +386,13 @@ MyBatis 3.5.10
 
 - [mall-swagger](http://localhost:8080/swagger-ui/#/)
 
+## 扣减库存
+
+如果是单体应用，一般用的是**乐观锁**。
+乐观锁的核心思想是：​**假设并发冲突不会发生，先尝试更新，通过条件判断来检测冲突**​。
+
+```sql
+UPDATE pms_sku_stock SET lock_stock = lock_stock + #{quantity}
+WHERE id = #{productSkuId} AND lock_stock + #{quantity} &lt;= stock
+```
 
