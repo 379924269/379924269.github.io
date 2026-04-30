@@ -381,3 +381,8 @@ MyBatis 3.5.10
 | **学习曲线** | 中等，需要掌握Spring Boot、MyBatis、ES等 |
 | **运维成本** | 中等，容器化部署简化运维 |
 
+## 访问地址
+
+- [mall-swagger](http://localhost:8080/swagger-ui/#/)
+
+

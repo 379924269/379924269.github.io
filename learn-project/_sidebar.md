@@ -7,5 +7,5 @@
 **🛒电商**
 
 - [🛍 理解电商模式](learn-project/mode.md)
-- [🎃 参考项目](learn-project/shop-demo.md)
-- [🎃 项目-mall](learn-project/mall.md)
+- [🍓 参考项目](learn-project/shop-demo.md)
+- [🍑 项目-mall](learn-project/mall.md)
