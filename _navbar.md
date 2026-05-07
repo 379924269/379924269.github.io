@@ -4,3 +4,4 @@
 * [🤖 AI相关](ai/index.md)
 * [☁️ Spring](spring/index.md)
 * [🍉 项目学习笔记](learn-project/ruoyi-springcloud.md)
+* [📚 书](book/36skill.md)

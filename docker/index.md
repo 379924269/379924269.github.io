@@ -7,7 +7,7 @@
 ## 常用docker-compose 模板
 
 > - [docker-compose](https://gitee.com/zhengqingya/docker-compose)
->
+> 
 > 常用的mysql、redis、rabbitmq等。可以一键运行的模板
 
 - **模板使用**，要什么就直接wget、curl拉取到服务器上，应用就可以了。
@@ -64,3 +64,31 @@ networks:
   dnp-network:
     driver: bridge
 ```
+
+## 两个docker-compose.yml中的容器相互访问
+
+容器要互相访问，就必须在同一个网络.
+
+容器中用**link**和**external-links**这俩个参数是遗留功能，现代的docker实践中**不推荐**使用
+
+> 创建一个公共网络，在docker-compose中叫external：true 外部网络
+
+```shell
+docker network create dnp
+```
+
+> docker-compose.yml声明一个网络,mysql加入dnp网络
+
+```yml
+networks:
+  dnp:
+    driver：bridge  # 如果要指定子网和网关或驱动选项，必须显示声明
+    external: true  # 声明这是外部创建的网络
+    name: dnp
+services:
+  mysql:
+    images：mysql:8.0
+    networks:
+      - dnp  # 指定加入的那个网络
+```
+
