@@ -38,6 +38,12 @@ curl -O https://gitee.com/zhengqingya/docker-compose/tree/master/Linux/rabbitmq
 ```yml
 version: '3.8'
 
+networks:
+  dnp:
+    driver: bridge  # 如果要指定子网和网关或驱动选项，必须显示声明
+    external: true  # 声明这是外部创建的网络
+    name: dnp
+
 services:
   mysql:
     image: registry.cn-hangzhou.aliyuncs.com/zhengqing/mysql:5.7  # 原镜像`mysql:5.7`
@@ -59,10 +65,6 @@ services:
       - "3306:3306"
     networks:
       - dnp-network
-
-networks:
-  dnp-network:
-    driver: bridge
 ```
 
 ## 两个docker-compose.yml中的容器相互访问
@@ -82,7 +84,7 @@ docker network create dnp
 ```yml
 networks:
   dnp:
-    driver：bridge  # 如果要指定子网和网关或驱动选项，必须显示声明
+    driver: bridge  # 如果要指定子网和网关或驱动选项，必须显示声明
     external: true  # 声明这是外部创建的网络
     name: dnp
 services:
